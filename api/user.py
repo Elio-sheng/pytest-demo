@@ -31,4 +31,19 @@ class User(RestClient):
         return self.post("/delete/user/{}".format(name), **kwargs)
 
 
+class UserService(RestClient):
+    def __init__(self, api_root_url, **kwargs):
+        super(UserService, self).__init__(api_root_url, **kwargs)
+
+    def webUserLogin(self, **kwargs):
+        return self.post("/user/web/sign/in", **kwargs)
+
+    def thirdUserLogin(self, **kwargs):
+        return self.post("/user/web/sign/in/third", **kwargs)
+
+    def webRegister(self, **kwargs):
+        return self.post("/user/web/sign/up", **kwargs)
+
+
 user = User(api_root_url)
+userservice = UserService(api_root_url)

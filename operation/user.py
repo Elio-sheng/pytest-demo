@@ -36,8 +36,10 @@ def get_one_user_info(username):
         result.error = "查询用户 ==>> 接口返回码是 【 {} 】, 返回信息：{} ".format(
             res.json()["code"], res.json()["msg"])
     result.msg = res.json()["msg"]
+    logger.info(res.text)
     result.response = res
-    logger.info("查看单个用户 ==>> 返回结果 ==>> {}".format(result.response.text))
+    logger.info(result.response.text)
+    logger.info("查看单个用户 ==>> 返回结果 ==>> {}".format(result.response.json))
     return result
 
 
